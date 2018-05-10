@@ -1,0 +1,109 @@
+<?php
+require 'includes/common.php';
+
+
+?>
+<head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<link href='http://fonts.googleapis.com/css?family=Raleway:400,200' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="loginPage.css">
+</head>
+<?php
+include 'includes/header.php';
+?>
+
+<body>
+<?php
+session_start();
+include 'includes/header.php';
+	$conn=new mysqli("localhost","root","","canteen");
+	if(mysqli_connect_errno())
+	{
+		echo "errror:not connected";
+	
+?>
+<?php 
+	}
+	else{
+		$res = array();
+	if (isset($_SESSION['id'])) { 
+		if($a1=$conn->prepare("SELECT `id`, `name`, `dob`, `phone` FROM student where id=? ")){
+    $a1->bind_param("s",$_SESSION['id']);
+    if($a1->execute()){
+
+      $a1->bind_result($stud_id,$name,$date,$phn);
+        while ($a1->fetch()) {
+            $res['stud_id'] = $stud_id;
+            $res['name'] = $name;
+            $res['date'] = $date;
+            $res['phn'] = $phn;
+            
+        }
+?>
+<div class="container">
+	<div class="row login_box">
+	    <div class="col-md-12 col-xs-12" align="center">
+            <br>
+            <div class="outter"><img src="http://lorempixel.com/output/people-q-c-100-100-1.jpg" class="image-circle"/></div>   
+            <h1>Hi Guest</h1>
+           
+	    </div>
+        
+       <form method="post" action="registration.php">
+        <div class="col-md-12 col-xs-12 login_control">
+                
+			  	
+				<div class="control">
+                    <div class="label">Name</div><?php  echo $res['stud_id'];?>
+                    
+                </div>
+				
+				<div class="control">
+                    <div class="label">User Id</div>
+                    <input type="text" class="form-control" name="roll" value="admin@gmail.com"/>
+                </div>
+			    
+				<div class="control">
+                    <div class="label">Password</div>
+                    <input type="password" class="form-control" name="password" value="admin@gmail.com"/>
+                </div>
+				
+				<div class="control">
+                    <div class="label">Date of Birth</div>
+                    <input type="text" class="form-control" name="date" value="admin@gmail.com"/>
+                </div>
+				
+				<div class="control">
+                    <div class="label">Phone Number</div>
+                    <input type="text" class="form-control" name="phone" value="admin@gmail.com"/>
+                </div>
+				
+                <div align="center">
+                     <button class="btn btn-orange" type="submit" name="register">LOGIN</button>
+                </div>
+				
+                
+        </div>
+		</form>
+        
+        
+            
+    </div>
+</div>
+</body>
+
+
+
+
+
+
+
+</html>
