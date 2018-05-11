@@ -63,6 +63,29 @@
     color:#FFF !important;
 }
 
+.btn-org{
+    background-color: #FF6E33;
+    border-radius: 0px;
+    margin: 5px;
+    padding: 5px;
+    width: 150px;
+    font-size: 20px;
+    font-weight: inherit;
+	color:#FFF 
+}
+
+.btn-org:hover {
+    background-color: FF6433;
+    border-radius: 0px;
+    margin: 5px;
+    padding: 5px;
+    width: 150px;
+    font-size: 20px;
+    font-weight: inherit;
+    color:#FFF !important;
+}
+
+
 
 .btn-grn{
     background-color: #009933;

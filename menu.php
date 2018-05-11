@@ -118,7 +118,8 @@ include 'includes/header.php';
 												<input type="hidden" name="f_id" value="<?php echo $row["food_id"];?>" />
 												<input type="hidden" name="f_name" value="<?php echo $row["food_name"];?>" />
 												<input type="hidden" name="f_price" value="<?php echo $row["price"];?>" />
-												<button class="btn btn-grn" onClick="cartAction('<?php echo $row["food_id"]; ?>');" type = "submit"><span class = "glyphicon glyphicon-shopping-cart"></span> Add to cart</button></a>
+												<input type="hidden" name="f_img" value="<?php echo $row["img"];?>" />
+												<button class="btn btn-grn" type = "submit"><span class = "glyphicon glyphicon-shopping-cart"></span>Add to cart</button></a>
 											  </div>
 											</div>
 										</form>
@@ -142,7 +143,7 @@ include 'includes/header.php';
 
 <script>
 function cartAction(action) {
-	console.log(action);
+	document.getElementById("txt").innerHTML="Added to cart";
 	
 	
 }

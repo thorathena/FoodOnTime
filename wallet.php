@@ -55,9 +55,8 @@ include 'includes/header.php';
        
         <div class="col-md-12 col-xs-12 login_control">
  			<div class="control">
-                    <div class="label">Available Balance:</div>
-                    <div  class="form-control" ><?php echo  $res['balance'];?><br><div/>
-            </div>                
+                    <div><center><h3>Available Balance:&nbsp
+                    <?php echo  $res['balance'];?></h3></center></div>
         </div>
 		<div align="center">
                      <a href = "addBalance.php"><button class="btn btn-orange" >Add Balance</button></a>
