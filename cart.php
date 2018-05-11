@@ -111,7 +111,7 @@ $item = 0;
 		<hr>
 		<h5> Choose delivery time</h5>
 		<form action="payMethod.php" method="POST" > 
-		&nbsp <input type="time" /><br>
+		&nbsp <input name="time" type="time" /><br>
 		<button class="btn btn-grn" type = "submit"></span> Place Order</button>
 		</form>
 </div>

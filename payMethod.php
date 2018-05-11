@@ -1,5 +1,6 @@
 <?php
 session_start();
+$time = $_POST['time'];
 ?>
 <html>
 <head>
@@ -13,7 +14,7 @@ session_start();
 
 
 	<div class="row login_box">
-	<form method="post" action=""> 
+	<form method="post" action="orderProcess.php"> 
         <div class="col-md-12 col-xs-12 login_control">
                  <center><h2>Choose Payment Method</h2></center>
            <hr>
@@ -22,13 +23,10 @@ session_start();
 						  <h4><input type="radio" name="pay" value="cod"> Cash On Delivery</h4><br>
 						  	
 			</div>	
-			<center><button class="btn btn-orange" >Proceed to pay</button></center>
+			<center><button class="btn btn-orange" type="submit" >Proceed to pay</button></center>
 	</form>
 		      
-        </div>
-		
-        
-            
+        </div>            
     </div>
 	</div>
 </body>
