@@ -29,7 +29,7 @@ $cost = $_POST['cost'];
 			<center><button class="btn btn-orange" type="submit" >Proceed to pay</button></center>
 	</form>
 		      
-        </div>            
+    </div>            
     </div>
 	</div>
 </body>

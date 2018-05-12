@@ -3,19 +3,53 @@ require 'includes/common.php';
 ?>
 <html>
 <head>
-<?php include 'includes/base.html';?>
+<?php include 'includes/base.html';
+include 'includes/header.php';
+?>
+
 <link rel="stylesheet" type="text/css" href="style.css">
 <script src="myscripts.js"></script>
 </head>
+<br><br><br><br><br>
 <?php
-$cnt = 1;
+$date = date("Y/m/d");
+
+echo $date;
+//code to generate order id.
+					$handle = fopen("order.txt", "r");
+					if(!$handle){
+						
+					 echo "could not open the file" ;
+
+					}
+					else {
+						
+						
+						$cnt = (int ) fread($handle,20);
+						fclose ($handle);
+						$cnt++;
+						//echo" <strong> you are visitor no ". $counter . " </strong> " ;
+					$handle = fopen("order.txt", "w" );
+					fwrite($handle,$cnt) ;
+					fclose ($handle) ;
+					}
+					
 if($_POST['pay']=="cod")
 {
 	$sql = "SELECT * FROM food_cart where stud_id='$_SESSION[id]'";
+			
+
+					
+
+
+
+
+
 			$result = $conn->query($sql);
+			
 			if ($result->num_rows > 0) {
 			while($row = $result->fetch_assoc()) {
-				$query = "INSERT INTO orders (order_id,user_id,f_id,name,qty,price,delivery_time)VALUES($cnt,'$_SESSION[id]',$row[f_id],'$row[name]',$row[qty],$row[f_price],'$_POST[time]')";
+				$query = "INSERT INTO orders (order_id,user_id,f_id,name,qty,price,delivery_time,date)VALUES($cnt,'$_SESSION[id]',$row[f_id],'$row[name]',$row[qty],$row[f_price],'$_POST[time]','$date')";
 			
 			$conn->query($query) ; 
 				//echo "yes";
@@ -42,7 +76,7 @@ else
 			$result = $conn->query($sql);
 			if ($result->num_rows > 0) {
 			while($row = $result->fetch_assoc()) {
-				$query = "INSERT INTO orders (order_id,user_id,f_id,name,qty,price,delivery_time)VALUES($cnt,'$_SESSION[id]',$row[f_id],'$row[name]',$row[qty],$row[f_price],'$_POST[time]')";
+				$query = "INSERT INTO orders (order_id,user_id,f_id,name,qty,price,delivery_time,date)VALUES($cnt,'$_SESSION[id]',$row[f_id],'$row[name]',$row[qty],$row[f_price],'$_POST[time]','$date')";
 			
 			$conn->query($query) ; 
 				//echo "yes";

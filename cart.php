@@ -56,15 +56,26 @@ $item = 0;
 									if ($result->num_rows > 0) 
 									{
 										// output data of each row
-										while($row = $result->fetch_assoc()) {?>
+										while($row = $result->fetch_assoc()) {
+										$sql= "SELECT `img` FROM menu WHERE `food_id`='$row[f_id]'";
+										$imgres = $conn->query($sql);
+										$img = $imgres->fetch_assoc();
+										//echo $img['img'];
+										?>
 										<form  method="POST" action='line-item-rem.php'> 
+										<div class="row justify-content-end">
+											  <div col-6>
 											<div class="media" style="padding:5px">
+											
 											  <div class="media-left">
 												<a href="#">
-												  <img class="media-object" src="<?php echo $row['image']?>" alt="..." height=100 width = 100>
+												
+												  <img class="media-object" src="<?php echo $img['img'];?>" alt="..." height=100 width = 100>
 												</a>
 											  </div>
+											   
 											  <div class="media-body">
+											  
 												<h4 class="media-heading"><?php echo $row["name"];?> </h4>
 											<!--	<span>&#8377</span><?php //echo $row["price"];?><br> -->
 												<h5><!--<input value = "<?php echo $row["qty"];?>" required> --></h5>
@@ -72,14 +83,16 @@ $item = 0;
 												<form id='' method='POST' action='cart.php'>
 														<input type='button' value='-' class='qtyminus' field='<?php echo $row["f_id"];?>' />
 														<input type='text' name='<?php echo $row["f_id"];?>' class='qty' value = "<?php echo $row["qty"];?>"/>
-														<input type='button' value='+' class='qtyplus' field='<?php echo $row["f_id"];?>' />
-														
+														<input type='button' value='+' class='qtyplus' field='<?php echo $row["f_id"];?>' />														
 												</form>
+											  </div>
 												<?php $item = $item +1; ?>
 												<?php $count = $count + ($row["qty"]*$row["f_price"]) ?> 
+												<div col-4>
 												<input type="hidden" name="f_id" value="<?php echo $row["f_id"];?>" /><br>
-												<button class="btn"name="rem" type = "submit"> Remove</button>
-												
+												<button class="btn btn-sm"name="rem" type = "submit"> Remove</button>
+												</div>
+											  </div>
 											  </div>
 											</div>
 										</form>
@@ -106,14 +119,15 @@ $item = 0;
 		<h4 style = "margin : 10px">Cart Summary</h4>
 		<hr>
 		</div>
-		<h5> Item      &nbsp</span><?php echo $item ?></h5>
-		<h5> Amount payable      <span>&#8377 </span><?php echo $count ?></h5><br>
+		<h5> &nbsp&nbsp&nbsp Item      </span><?php echo $item ?></h5>
+		<h5>&nbsp&nbsp&nbsp Amount payable     <span>&#8377 </span><?php echo $count ?></h5><br>
 		<hr>
-		<h5> Choose delivery time</h5>
+		<h5>&nbsp&nbsp&nbsp Choose delivery time</h5>
 		<form action="payMethod.php" method="POST" > 
-		&nbsp <input name="time" type="time" /><br>
+		&nbsp &nbsp&nbsp&nbsp<input name="time" type="time" /><br>
 		<input name = "cost" type="hidden" value = "<?php echo $count ?>">
-		<button class="btn btn-grn" type = "submit"></span> Place Order</button>
+		<br>
+		<center><button class="btn btn-grn" type = "submit"></span> Place Order</button></center>
 		</form>
 </div>
 </div>

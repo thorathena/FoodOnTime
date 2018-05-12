@@ -8,7 +8,7 @@ $conn=new mysqli("localhost","root","","canteen");
 	}
 echo $_POST['f_id'];
 if(isset($_POST['rem'])){
-mysqli_query($conn, "DELETE FROM food_cart WHERE f_id=$_POST[f_id] ");
+mysqli_query($conn, "DELETE FROM food_cart WHERE f_id=$_POST[f_id] AND stud_id='$SESSION[id]' ");
 
     echo "deleted successfully";
 	

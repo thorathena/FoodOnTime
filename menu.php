@@ -48,7 +48,7 @@ include 'includes/header.php';
 									$query = $_GET['query']; 
 									// gets value sent over search form
 									 
-									$min_length = 3;
+									$min_length = 1;
 									// you can set minimum length of the query if you want
 									 
 									if(strlen($query) >= $min_length)
@@ -70,16 +70,18 @@ include 'includes/header.php';
 													</a>
 												  </div>
 												  <div class="media-body">
-													<h4 class="media-heading"><?php echo $res['food_name'];?> </h4>
-													<span>&#8377</span><?php echo $res['price'];?><br>
-													
-													<form id='' method='POST' action='menu.php'>
-														<input type='button' value='-' class='qtyminus' field='quantity' />
-														<input type='text' name='quantity' value='0' class='qty' />
-														<input type='button' value='+' class='qtyplus' field='quantity' />
-													</form>
-													<button class="btn btn-grn" ><span class = "glyphicon glyphicon-shopping-cart"></span>Add to cart</button></a>
-												  </div>
+																							
+													<form id="<?php echo $res["food_id"];?>" method="post" action='line-item.php'>	 
+												<h4 class="media-heading"><?php echo $res["food_name"];?> </h4>
+												<span>&#8377</span><?php echo $res["price"];?><br>
+												<div><input type="text" name="quantity" value="1" size="2" /></div>
+												<input type="hidden" name="f_id" value="<?php echo $res["food_id"];?>" />
+												<input type="hidden" name="f_name" value="<?php echo $res["food_name"];?>" />
+												<input type="hidden" name="f_price" value="<?php echo $res["price"];?>" />
+												<input type="hidden" name="f_img" value="<?php echo $res["img"];?>" />
+												<button class="btn btn-grn" type = "submit"><span class = "glyphicon glyphicon-shopping-cart"></span>Add to cart</button></a>
+											  </div>
+												</form>	
 												</div>
 												
 							<?php					

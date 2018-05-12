@@ -1,4 +1,6 @@
 jQuery(document).ready(function(){
+	//var currentVal=0;
+	
     // This button will increment the value
     $('.qtyplus').click(function(e){
         // Stop acting like a button
@@ -6,7 +8,7 @@ jQuery(document).ready(function(){
         // Get the field name
         fieldName = $(this).attr('field');
         // Get its current value
-        var currentVal = parseInt($('input[name='+fieldName+']').val());
+         currentVal = parseInt($('input[name='+fieldName+']').val());
         // If is not undefined
         if (!isNaN(currentVal)) {
             // Increment
@@ -15,6 +17,17 @@ jQuery(document).ready(function(){
             // Otherwise put a 0 there
             $('input[name='+fieldName+']').val(1);
         }
+	$.ajax({  
+	var id = $('field');
+         type:"POST",  
+         url:"ajax-action.php",  
+         data:{val:currentVal},  
+         success:function(data){  
+            alert(data);  
+         }  
+      }); 
+		
+		
     });
     // This button will decrement the value till 0
     $(".qtyminus").click(function(e) {

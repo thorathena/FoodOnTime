@@ -45,18 +45,18 @@ include 'includes/header.php';
 		
 	<div class="container">
 	<div class="row login_box">
-	    <div class="col-md-12 col-xs-12" align="center">
-            <br>
-               
-            <h1>Wallet</h1>
-           
-	    </div>
+	     <div class="col-md-12 col-xs-12 login_control">
+		<h2>  <center>Wallet &nbsp <img src="image/wallet.png" height=50 width = 50></center></h2>
+		 
+                 
+           <hr>
         
        
-        <div class="col-md-12 col-xs-12 login_control">
+        
  			<div class="control">
+			<br>
                     <div><center><h3>Available Balance:&nbsp
-                    <?php echo  $res['balance'];?></h3></center></div>
+                    <span style="color:black">&#8377 </span><?php echo  $res['balance'];?></h3></center></div>
         </div>
 		<div align="center">
                      <a href = "addBalance.php"><button class="btn btn-orange" >Add Balance</button></a>
