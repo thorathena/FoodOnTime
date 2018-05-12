@@ -33,8 +33,8 @@
 ?><span class="caret"></span>  </a>
 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
     <li><a href="profile.php">Profile</a></li>
-    <li><a href="wallet.php">wallet</a></li>
-    <li><a href="#">Something else here</a></li>
+    <li><a href="wallet.php">Wallet</a></li>
+    <li><a href="#">Dashboard</a></li>
     <li role="separator" class="divider"></li>
     <li><a href = "logout.php"><span class = "glyphicon glyphicon-log-in"></span> Logout</a></li>
   </ul>

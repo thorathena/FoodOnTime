@@ -112,6 +112,7 @@ $item = 0;
 		<h5> Choose delivery time</h5>
 		<form action="payMethod.php" method="POST" > 
 		&nbsp <input name="time" type="time" /><br>
+		<input name = "cost" type="hidden" value = "<?php echo $count ?>">
 		<button class="btn btn-grn" type = "submit"></span> Place Order</button>
 		</form>
 </div>

@@ -1,6 +1,7 @@
 <?php
 session_start();
 $time = $_POST['time'];
+$cost = $_POST['cost'];
 ?>
 <html>
 <head>
@@ -22,7 +23,9 @@ $time = $_POST['time'];
 			   <h4><input type="radio" name="pay" value="wallet"> Wallet</h4><br>
 						  <h4><input type="radio" name="pay" value="cod"> Cash On Delivery</h4><br>
 						  	
-			</div>	
+			</div>
+			<input name = "time" type="hidden" value = "<?php echo $time ?>">
+			<input name = "cost" type="hidden" value = "<?php echo $cost ?>">
 			<center><button class="btn btn-orange" type="submit" >Proceed to pay</button></center>
 	</form>
 		      
