@@ -14,7 +14,7 @@ include 'includes/header.php';
 <?php
 $date = date("Y/m/d");
 
-echo $date;
+//echo $date;
 //code to generate order id.
 					$handle = fopen("order.txt", "r");
 					if(!$handle){
@@ -56,8 +56,17 @@ if($_POST['pay']=="cod")
 			}
 			}
 	mysqli_query($conn, "DELETE FROM food_cart WHERE stud_id='$_SESSION[id]' ");
-	echo "order placed successfully";
+?>
+<div class="container">
+<center>
+<img src = "image/tick.png" height=150 width=150>
+<h2>
+<?php	echo "order placed successfully"; ?>
+</h2>
+</div>
+<?php
 }
+
 else
 {
 	if($_POST['pay']=="wallet")
@@ -68,7 +77,17 @@ else
 		//echo $row['balance'];
 		if($row['balance'] < $_POST['cost'])
 		{
-			echo "Not enough funds. Add balance to your wallet";
+?>
+				<br><br><br><br>
+				<div class="container">
+				<center>
+				<img src = "image/wallet.png" height=100 width=100>
+				<h2>
+				<?php	echo "Not enough funds. Add balance to your wallet"; ?>
+				</h2>
+				</center>
+				</div>
+<?php			
 		}
 		else
 		{
@@ -97,12 +116,19 @@ else
 					
 				$a1->close();
 			}
-		
-			echo "order placed successfully";
-		 
+?>		
+			<div class="container">
+			<center>
+			<img src = "image/tick.png" height=150 width=150>
+			<h2>
+			<?php	echo "order placed successfully"; ?>
+			</h2>
+			</center>
+			</div>
 			
 			
 			
+<?php			
 		}
 	}
 }

@@ -2,19 +2,19 @@
 session_start();
 include 'includes/common.php';
 
- $query = "SELECT * FROM food_cart WHERE f_id='$_POST[f_id]'";
+ $query = "SELECT * FROM food_cart WHERE f_id='$_POST[f_id]' AND stud_id='$_SESSION[id]'";
   	$results = mysqli_query($conn, $query);
   	if (mysqli_num_rows($results) == 1) {
 		
-		if($a1=$conn->prepare("UPDATE food_cart SET `qty`=`qty`+? WHERE f_id=?"))
+		if($a1=$conn->prepare("UPDATE food_cart SET `qty`=`qty`+? WHERE f_id=? AND stud_id=?"))
 			{
-					$a1->bind_param("ss",$_POST['quantity'],$_POST[f_id]);
+					$a1->bind_param("sss",$_POST['quantity'],$_POST['f_id'],$_SESSION['id']);
 					//if ($conn->query($query) === TRUE)
 					if($a1->execute()===TRUE)
 					
 					{
 						echo "Data updated successfully";
-						header('Location:menu.php'); 
+						//header('Location:menu.php'); 
 					}
 					else{
 						echo "updation failed due to error.please make sure that you entered valid data";
@@ -53,7 +53,7 @@ if($a1=$conn->prepare(" food_cart SET `id`=?,`name`=?,`password`=?,`dob`=?,`phon
 		$a1->close();
 		}*/
 		
-		header('Location:menu.php');
+		//header('Location:menu.php');
 	}
 
 ?>

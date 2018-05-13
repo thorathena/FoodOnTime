@@ -13,6 +13,7 @@ jQuery(document).ready(function(){
         if (!isNaN(currentVal)) {
             // Increment
             $('input[name='+fieldName+']').val(currentVal + 1);
+			currentVal + 1
         } else {
             // Otherwise put a 0 there
             $('input[name='+fieldName+']').val(1);
@@ -41,9 +42,19 @@ jQuery(document).ready(function(){
         if (!isNaN(currentVal) && currentVal > 1) {
             // Decrement one
             $('input[name='+fieldName+']').val(currentVal - 1);
+			$.ajax({  
+	
+			 type:"POST",  
+			 url:"ajax-action1.php",  
+			 data:{val:currentVal,id:fieldName},  
+			 success:function(data){  
+				alert(data);  
+			 }  
+		  }); 
         } else {
             // Otherwise put a 0 there
             $('input[name='+fieldName+']').val(1);
         }
+		
     });
 });
