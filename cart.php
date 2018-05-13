@@ -50,7 +50,7 @@ $item = 0;
 							<?php
 							if (isset($_SESSION['id'])) 
 							{
-									$sql = "SELECT `f_id`,`name`,`qty`,`image`,`f_price` FROM food_cart WHERE `stud_id`='$_SESSION[id]'";
+									$sql = "SELECT `f_id`,`name`,`qty`,`f_price` FROM food_cart WHERE `stud_id`='$_SESSION[id]'";
 									$result = $conn->query($sql);
 
 									if ($result->num_rows > 0) 

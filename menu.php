@@ -120,7 +120,7 @@ include 'includes/header.php';
 												<input type="hidden" name="f_id" value="<?php echo $row["food_id"];?>" />
 												<input type="hidden" name="f_name" value="<?php echo $row["food_name"];?>" />
 												<input type="hidden" name="f_price" value="<?php echo $row["price"];?>" />
-												<input type="hidden" name="f_img" value="<?php echo $row["img"];?>" />
+												
 												<button class="btn btn-grn" type = "submit"><span class = "glyphicon glyphicon-shopping-cart"></span>Add to cart</button></a>
 											  </div>
 											</div>

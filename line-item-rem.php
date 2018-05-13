@@ -32,6 +32,6 @@ if($a1=$conn->prepare(" food_cart SET `id`=?,`name`=?,`password`=?,`dob`=?,`phon
 		$a1->close();
 		}*/
 		
-		//header('Location:cart.php');
+		header('Location:cart.php');
 
 ?>

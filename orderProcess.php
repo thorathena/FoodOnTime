@@ -63,7 +63,14 @@ if($_POST['pay']=="cod")
 <h2>
 <?php	echo "order placed successfully"; ?>
 </h2>
+<h4>
+<?php	echo "order id: ".$cnt ; ?>
+</h4>
 </div>
+<br>
+			<div align="center">
+                     <a href = "menu.php"><button class="btn btn-orange" >Go to Menu</button></a>
+			</div>
 <?php
 }
 
@@ -86,6 +93,9 @@ else
 				<?php	echo "Not enough funds. Add balance to your wallet"; ?>
 				</h2>
 				</center>
+				</div>
+				<div align="center">
+                     <a href = "addBalance.php"><button class="btn btn-orange" >Add Balance</button></a>
 				</div>
 <?php			
 		}
@@ -116,14 +126,21 @@ else
 					
 				$a1->close();
 			}
-?>		
+?>			<br>
 			<div class="container">
 			<center>
 			<img src = "image/tick.png" height=150 width=150>
 			<h2>
 			<?php	echo "order placed successfully"; ?>
 			</h2>
+			<h4>
+			<?php	echo "order id: ".$cnt ; ?>
+			</h4>
 			</center>
+			</div>
+			<br>
+			<div align="center">
+                     <a href = "menu.php"><button class="btn btn-orange" >Go to Menu</button></a>
 			</div>
 			
 			
