@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 12, 2018 at 06:32 AM
+-- Generation Time: May 13, 2018 at 12:43 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -33,18 +33,18 @@ CREATE TABLE IF NOT EXISTS `food_cart` (
   `stud_id` varchar(200) NOT NULL,
   `name` varchar(200) NOT NULL,
   `qty` int(11) NOT NULL,
-  `image` varchar(200) NOT NULL,
   PRIMARY KEY (`s_no`),
   KEY `stud_id` (`stud_id`),
   KEY `f_id` (`f_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=43 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=37 ;
 
 --
 -- Dumping data for table `food_cart`
 --
 
-INSERT INTO `food_cart` (`s_no`, `f_price`, `f_id`, `stud_id`, `name`, `qty`, `image`) VALUES
-(42, 8, 1, 'group4@gmail.com', 'Coffee', 1, 'imagecoffee.jpg');
+INSERT INTO `food_cart` (`s_no`, `f_price`, `f_id`, `stud_id`, `name`, `qty`) VALUES
+(23, 8, 1, 'dan@gmail.com', 'Coffee', 2),
+(36, 8, 1, 'group4@gmail.com', 'Coffee', 2);
 
 -- --------------------------------------------------------
 
@@ -81,6 +81,57 @@ INSERT INTO `menu` (`food_id`, `food_name`, `price`, `img`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `orders`
+--
+
+CREATE TABLE IF NOT EXISTS `orders` (
+  `s_no` int(11) NOT NULL AUTO_INCREMENT,
+  `order_id` int(11) NOT NULL,
+  `user_id` varchar(200) NOT NULL,
+  `f_id` int(11) NOT NULL,
+  `name` varchar(200) NOT NULL,
+  `qty` int(11) NOT NULL,
+  `price` float NOT NULL,
+  `delivery_time` time NOT NULL,
+  `date` date NOT NULL,
+  `status` varchar(200) NOT NULL DEFAULT 'not delivered',
+  PRIMARY KEY (`s_no`),
+  KEY `user_id` (`user_id`,`f_id`),
+  KEY `f_id` (`f_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=30 ;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`s_no`, `order_id`, `user_id`, `f_id`, `name`, `qty`, `price`, `delivery_time`, `date`, `status`) VALUES
+(7, 1, 'group4@gmail.com', 1, 'Coffee', 1, 8, '17:30:00', '0000-00-00', 'not delivered'),
+(8, 1, 'group4@gmail.com', 2, 'Omlette', 1, 20, '17:30:00', '0000-00-00', 'not delivered'),
+(9, 2, 'group4@gmail.com', 2, 'Omlette', 1, 20, '17:30:00', '0000-00-00', 'not delivered'),
+(10, 3, 'dan@gmail.com', 1, 'Coffee', 1, 8, '15:00:00', '0000-00-00', 'not delivered'),
+(11, 3, 'dan@gmail.com', 2, 'Omlette', 1, 20, '15:00:00', '0000-00-00', 'not delivered'),
+(12, 3, 'dan@gmail.com', 3, 'Vegetable Fried Rice', 1, 60, '15:00:00', '0000-00-00', 'not delivered'),
+(13, 4, 'dan@gmail.com', 4, 'Vegetable Biriyani', 1, 60, '19:09:00', '0000-00-00', 'not delivered'),
+(14, 7, 'dan@gmail.com', 2, 'Omlette', 1, 20, '00:00:00', '0000-00-00', 'not delivered'),
+(15, 8, 'dan@gmail.com', 1, 'Coffee', 1, 8, '00:00:00', '0000-00-00', 'not delivered'),
+(16, 9, 'dan@gmail.com', 3, 'Vegetable Fried Rice', 1, 60, '00:00:00', '0000-00-00', 'not delivered'),
+(17, 10, 'dan@gmail.com', 1, 'Coffee', 2, 8, '15:10:00', '0000-00-00', 'not delivered'),
+(18, 11, 'dan@gmail.com', 8, 'Dosa', 1, 30, '00:00:00', '2018-05-12', 'not delivered'),
+(19, 12, 'dan@gmail.com', 4, 'Vegetable Biriyani', 3, 60, '16:00:00', '2018-05-13', 'not delivered'),
+(20, 13, 'dan@gmail.com', 5, 'Noodles', 1, 55, '14:00:00', '2018-05-13', 'not delivered'),
+(21, 13, 'dan@gmail.com', 2, 'Omlette', 1, 20, '14:00:00', '2018-05-13', 'not delivered'),
+(22, 13, 'dan@gmail.com', 3, 'Vegetable Fried Rice', 1, 60, '14:00:00', '2018-05-13', 'not delivered'),
+(23, 14, 'group4@gmail.com', 2, 'Omlette', 1, 20, '15:00:00', '2018-05-13', 'not delivered'),
+(24, 15, 'group4@gmail.com', 4, 'Vegetable Biriyani', 3, 60, '18:00:00', '2018-05-13', 'not delivered'),
+(25, 19, 'group4@gmail.com', 3, 'Vegetable Fried Rice', 1, 60, '15:00:00', '2018-05-13', 'not delivered'),
+(26, 20, 'group4@gmail.com', 2, 'Omlette', 2, 20, '19:30:00', '2018-05-13', 'not delivered'),
+(27, 21, 'group4@gmail.com', 5, 'Noodles', 1, 55, '17:00:00', '2018-05-13', 'not delivered'),
+(28, 23, 'group4@gmail.com', 1, 'Coffee', 1, 8, '15:00:00', '2018-05-13', 'not delivered'),
+(29, 27, 'group4@gmail.com', 1, 'Coffee', 3, 8, '00:00:00', '2018-05-13', 'not delivered');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `student`
 --
 
@@ -99,6 +150,7 @@ CREATE TABLE IF NOT EXISTS `student` (
 --
 
 INSERT INTO `student` (`name`, `id`, `password`, `dob`, `phone`) VALUES
+('Dhanya', 'dan@gmail.com', 'Dhanya!98', '1998-01-28', '9566955249'),
 ('group 4', 'group4@gmail.com', 'Group-4#', '2018-01-28', '9898989898');
 
 -- --------------------------------------------------------
@@ -115,14 +167,15 @@ CREATE TABLE IF NOT EXISTS `wallet` (
   KEY `student_id` (`student_id`),
   KEY `student_id_2` (`student_id`),
   KEY `student_id_3` (`student_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `wallet`
 --
 
 INSERT INTO `wallet` (`wallet_id`, `student_id`, `balance`) VALUES
-(2, 'group4@gmail.com', 0);
+(2, 'group4@gmail.com', 88),
+(3, 'dan@gmail.com', 42);
 
 --
 -- Constraints for dumped tables
@@ -134,6 +187,13 @@ INSERT INTO `wallet` (`wallet_id`, `student_id`, `balance`) VALUES
 ALTER TABLE `food_cart`
   ADD CONSTRAINT `food_cart_ibfk_1` FOREIGN KEY (`stud_id`) REFERENCES `student` (`id`),
   ADD CONSTRAINT `food_cart_ibfk_2` FOREIGN KEY (`f_id`) REFERENCES `menu` (`food_id`);
+
+--
+-- Constraints for table `orders`
+--
+ALTER TABLE `orders`
+  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `student` (`id`),
+  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`f_id`) REFERENCES `menu` (`food_id`);
 
 --
 -- Constraints for table `wallet`
