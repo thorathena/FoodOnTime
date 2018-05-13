@@ -50,7 +50,7 @@ $item = 0;
 							<?php
 							if (isset($_SESSION['id'])) 
 							{
-									$sql = "SELECT `f_id`,`name`,`qty`,`image`,`f_price` FROM food_cart";
+									$sql = "SELECT `f_id`,`name`,`qty`,`image`,`f_price` FROM food_cart WHERE `stud_id`='$_SESSION[id]'";
 									$result = $conn->query($sql);
 
 									if ($result->num_rows > 0) 
@@ -83,6 +83,7 @@ $item = 0;
 												<form id='' method='POST' action='cart.php'>
 														<input type='button' value='-' class='qtyminus' field='<?php echo $row["f_id"];?>' />
 														<input type='text' name='<?php echo $row["f_id"];?>' class='qty' value = "<?php echo $row["qty"];?>"/>
+														
 														<input type='button' value='+' class='qtyplus' field='<?php echo $row["f_id"];?>' />														
 												</form>
 											  </div>

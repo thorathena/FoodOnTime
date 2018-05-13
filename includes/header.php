@@ -34,7 +34,7 @@
 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
     <li><a href="profile.php">Profile</a></li>
     <li><a href="wallet.php">Wallet</a></li>
-    <li><a href="#">Dashboard</a></li>
+    <li><a href="dashboard.php">Dashboard</a></li>
     <li role="separator" class="divider"></li>
     <li><a href = "logout.php"><span class = "glyphicon glyphicon-log-in"></span> Logout</a></li>
   </ul>

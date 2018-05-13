@@ -18,10 +18,10 @@ jQuery(document).ready(function(){
             $('input[name='+fieldName+']').val(1);
         }
 	$.ajax({  
-	var id = $('field');
+	
          type:"POST",  
          url:"ajax-action.php",  
-         data:{val:currentVal},  
+         data:{val:currentVal,id:fieldName},  
          success:function(data){  
             alert(data);  
          }  
