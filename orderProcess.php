@@ -49,7 +49,7 @@ if($_POST['pay']=="cod")
 			
 			if ($result->num_rows > 0) {
 			while($row = $result->fetch_assoc()) {
-				$query = "INSERT INTO orders (order_id,user_id,f_id,name,qty,price,delivery_time,date)VALUES($cnt,'$_SESSION[id]',$row[f_id],'$row[name]',$row[qty],$row[f_price],'$_POST[time]','$date')";
+				$query = "INSERT INTO orders (order_id,user_id,f_id,name,qty,price,paymethod,delivery_time,date)VALUES($cnt,'$_SESSION[id]',$row[f_id],'$row[name]',$row[qty],$row[f_price],'$_POST[pay]','$_POST[time]','$date')";
 			
 			$conn->query($query) ; 
 				//echo "yes";
@@ -105,7 +105,7 @@ else
 			$result = $conn->query($sql);
 			if ($result->num_rows > 0) {
 			while($row = $result->fetch_assoc()) {
-				$query = "INSERT INTO orders (order_id,user_id,f_id,name,qty,price,delivery_time,date)VALUES($cnt,'$_SESSION[id]',$row[f_id],'$row[name]',$row[qty],$row[f_price],'$_POST[time]','$date')";
+				$query = "INSERT INTO orders (order_id,user_id,f_id,name,qty,price,paymethod,delivery_time,date)VALUES($cnt,'$_SESSION[id]',$row[f_id],'$row[name]',$row[qty],$row[f_price],'$_POST[pay]','$_POST[time]','$date')";
 			
 			$conn->query($query) ; 
 				//echo "yes";

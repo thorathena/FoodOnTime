@@ -67,12 +67,12 @@ session_start();
 				
 				<div class="control">
                     <div class="label">Name</div>
-                    <input  class="form-control" value="<?php echo  $res['name'];?>" />
+                    <input  class="form-control" value="<?php echo  $res['name'];?>"  readonly />
                 </div>
 				
 				<div class="control">
                     <div class="label">User Id</div>
-                    <input  class="form-control" value="<?php echo  $res['stud_id'];?>"/>
+                    <input  class="form-control" value="<?php echo  $res['stud_id'];?>" readonly />
                 </div>
 			    
 				

@@ -18,14 +18,15 @@ jQuery(document).ready(function(){
             // Otherwise put a 0 there
             $('input[name='+fieldName+']').val(1);
         }
-	$.ajax({  
+		$.ajax({  
 	
          type:"POST",  
          url:"ajax-action.php",  
          data:{val:currentVal,id:fieldName},  
-         success:function(data){  
-            alert(data);  
+         success:function(){  
+            window.location.href = "cart.php"; 
          }  
+		 
       }); 
 		
 		
@@ -47,8 +48,8 @@ jQuery(document).ready(function(){
 			 type:"POST",  
 			 url:"ajax-action1.php",  
 			 data:{val:currentVal,id:fieldName},  
-			 success:function(data){  
-				alert(data);  
+			 success:function(){  
+				window.location.href = "cart.php"; 
 			 }  
 		  }); 
         } else {

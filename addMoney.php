@@ -16,7 +16,7 @@ session_start();
                 
 			  	
 				<div class="control">
-                    <input type="text" class="form-control" name="amt"  placeholder="Enter Amount" required/>
+                    <input type="text" pattern="[0-9]+" title="Enter a valid amount" class="form-control" name="amt"  placeholder="Enter Amount" required/>
                 </div>
 				
 				<div class="control">

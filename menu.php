@@ -116,7 +116,7 @@ include 'includes/header.php';
 											  <div class="media-body">
 												<h4 class="media-heading"><?php echo $row["food_name"];?> </h4>
 												<span>&#8377</span><?php echo $row["price"];?><br>
-												<div><input type="text" name="quantity" value="1" size="2" /></div>
+												<div><input type="number" name="quantity" min="1" value="1" size="2" /></div>
 												<input type="hidden" name="f_id" value="<?php echo $row["food_id"];?>" />
 												<input type="hidden" name="f_name" value="<?php echo $row["food_name"];?>" />
 												<input type="hidden" name="f_price" value="<?php echo $row["price"];?>" />

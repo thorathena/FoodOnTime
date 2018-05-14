@@ -79,13 +79,14 @@ $item = 0;
 												<h4 class="media-heading"><?php echo $row["name"];?> </h4>
 											<!--	<span>&#8377</span><?php //echo $row["price"];?><br> -->
 												<h5><!--<input value = "<?php echo $row["qty"];?>" required> --></h5>
-												<h5>price:<?php echo $row["qty"]*$row["f_price"]?></h5>
+												
 												<form id='' method='POST' action='cart.php'>
 														<input type='button' value='-' class='qtyminus' field='<?php echo $row["f_id"];?>' />
 														<input type='text' name='<?php echo $row["f_id"];?>' class='qty' value = "<?php echo $row["qty"];?>"/>
 														
 														<input type='button' value='+' class='qtyplus' field='<?php echo $row["f_id"];?>' />														
 												</form>
+												<h5>price:<?php echo $row["qty"]*$row["f_price"]?></h5>
 											  </div>
 												<?php $item = $item +1; ?>
 												<?php $count = $count + ($row["qty"]*$row["f_price"]) ?> 
@@ -125,7 +126,7 @@ $item = 0;
 		<hr>
 		<h5>&nbsp&nbsp&nbsp Choose delivery time</h5>
 		<form action="payMethod.php" method="POST" > 
-		&nbsp &nbsp&nbsp&nbsp<input name="time" type="time" /><br>
+		&nbsp &nbsp&nbsp&nbsp <input name="time" type="time" required /><br>
 		<input name = "cost" type="hidden" value = "<?php echo $count ?>">
 		<br>
 		<center><button class="btn btn-grn" type = "submit"></span> Place Order</button></center>
