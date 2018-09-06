@@ -114,6 +114,10 @@ $item = 0;
 			</div>
 	</div>
 </div>
+<?php
+	$sql = "SELECT `f_id`,`name`,`qty`,`f_price` FROM food_cart WHERE `stud_id`='$_SESSION[id]'";
+	$result = $conn->query($sql);
+	?>
 <div class="col-lg-1"></div>
 <div class="col-lg-4">
 	<div>
@@ -129,7 +133,18 @@ $item = 0;
 		&nbsp &nbsp&nbsp&nbsp <input name="time" type="time" required /><br>
 		<input name = "cost" type="hidden" value = "<?php echo $count ?>">
 		<br>
-		<center><button class="btn btn-grn" type = "submit"></span> Place Order</button></center>
+<?php
+		if ($result->num_rows > 0) {
+?>
+		<center><button class="btn btn-grn" type = "submit"> Place Order</button></center>
+<?php 
+		}
+		else{
+?>
+		<center><button class="btn btn-orange" disabled> Place Order</button></center>
+<?php
+		}
+?>
 		</form>
 </div>
 </div>
